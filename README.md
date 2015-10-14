@@ -2,7 +2,7 @@
 iOS for designers class project. Crush bugs on your field.
 
 ###Development
-This project uses cocoapods to maintain dependencies. Pleaes work out of the .xcworkspace file.
+This project uses cocoapods to maintain dependencies. You must work out of the .xcworkspace file.
 
 ###Mockup
 
