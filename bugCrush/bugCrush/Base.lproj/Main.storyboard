@@ -1,50 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Front Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FrontPageViewController" customModule="bugCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AOQ-tj-6t4"/>
+                        <viewControllerLayoutGuide type="bottom" id="rfN-cP-8eh"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frontPageGraphic" id="i3J-Md-mo5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frontPageGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="i3J-Md-mo5">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="Ty4-mK-nuZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ty4-mK-nuZ">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.38" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bugsTrail" id="cNm-ad-Nsz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bugsTrail" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-ad-Nsz">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YxB-EZ-1CQ">
-                                <rect key="frame" x="20" y="482" width="280" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxB-EZ-1CQ">
+                                <rect key="frame" x="16" y="491" width="288" height="57"/>
                                 <color key="backgroundColor" red="0.19607843459999999" green="0.8156862855" blue="0.058823529630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="q2K-AR-x6f"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="zkl-L5-qOP" kind="modal" modalTransitionStyle="crossDissolve" id="WNo-bg-bmp"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" id="iJd-mK-BTt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="iJd-mK-BTt">
                                 <rect key="frame" x="27" y="35" width="267" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Chq-9h-UdC"/>
+                                    <constraint firstAttribute="width" constant="267" id="PRL-gs-bcn"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iJd-mK-BTt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2hv-9w-Eyl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cNm-ad-Nsz" secondAttribute="trailing" constant="-20" id="3gi-0X-lrQ"/>
+                            <constraint firstItem="i3J-Md-mo5" firstAttribute="top" secondItem="AOQ-tj-6t4" secondAttribute="bottom" constant="-20" id="7hN-Wl-Mir"/>
+                            <constraint firstItem="cNm-ad-Nsz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="8Vb-4y-qOL"/>
+                            <constraint firstItem="cNm-ad-Nsz" firstAttribute="top" secondItem="AOQ-tj-6t4" secondAttribute="bottom" constant="-20" id="BKz-FM-E5j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YxB-EZ-1CQ" secondAttribute="trailing" id="E08-TQ-Y53"/>
+                            <constraint firstItem="Ty4-mK-nuZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Fnk-nX-NxZ"/>
+                            <constraint firstItem="iJd-mK-BTt" firstAttribute="top" secondItem="AOQ-tj-6t4" secondAttribute="bottom" constant="15" id="HY1-wq-AaB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ty4-mK-nuZ" secondAttribute="trailing" constant="-20" id="Nyn-rC-CwO"/>
+                            <constraint firstItem="i3J-Md-mo5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OZG-mJ-6zi"/>
+                            <constraint firstItem="rfN-cP-8eh" firstAttribute="top" secondItem="i3J-Md-mo5" secondAttribute="bottom" id="P3X-0k-LSE"/>
+                            <constraint firstItem="rfN-cP-8eh" firstAttribute="top" secondItem="cNm-ad-Nsz" secondAttribute="bottom" id="VNL-RE-2GC"/>
+                            <constraint firstItem="rfN-cP-8eh" firstAttribute="top" secondItem="YxB-EZ-1CQ" secondAttribute="bottom" constant="20" id="WEE-r7-1qz"/>
+                            <constraint firstItem="Ty4-mK-nuZ" firstAttribute="top" secondItem="AOQ-tj-6t4" secondAttribute="bottom" constant="-20" id="bpk-Cw-rVP"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YxB-EZ-1CQ" secondAttribute="leading" id="i4g-qF-MZH"/>
+                            <constraint firstItem="rfN-cP-8eh" firstAttribute="top" secondItem="Ty4-mK-nuZ" secondAttribute="bottom" id="uLn-td-pC0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i3J-Md-mo5" secondAttribute="trailing" constant="-20" id="w5l-Gp-I7y"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="366"/>
+        </scene>
+        <!--Pick Farmer View Controller-->
+        <scene sceneID="iUX-lr-Eog">
+            <objects>
+                <viewController id="zkl-L5-qOP" customClass="PickFarmerViewController" customModule="bugCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3Q-q6-CgX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z3Z-Sg-Cam"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Hm-ge-hCT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OGc-Kn-zwk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rC5-3j-JgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="366"/>
         </scene>
     </scenes>
     <resources>
