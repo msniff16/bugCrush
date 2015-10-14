@@ -38,7 +38,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zkl-L5-qOP" kind="modal" modalTransitionStyle="crossDissolve" id="WNo-bg-bmp"/>
+                                    <segue destination="jXW-AL-Luo" kind="modal" modalTransitionStyle="crossDissolve" id="WNo-bg-bmp"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="iJd-mK-BTt">
@@ -70,12 +70,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="i3J-Md-mo5" secondAttribute="trailing" constant="-20" id="w5l-Gp-I7y"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="366"/>
         </scene>
-        <!--Pick Farmer View Controller-->
+        <!--Choose Farmer-->
         <scene sceneID="iUX-lr-Eog">
             <objects>
                 <viewController id="zkl-L5-qOP" customClass="PickFarmerViewController" customModule="bugCrush" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,19 +85,191 @@
                         <viewControllerLayoutGuide type="bottom" id="Z3Z-Sg-Cam"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Hm-ge-hCT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-wG-EPj">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="508"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvF-5c-KVF">
+                                        <rect key="frame" x="4" y="0.0" width="320" height="660"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmerDave" translatesAutoresizingMaskIntoConstraints="NO" id="MHk-MG-B03">
+                                                <rect key="frame" x="70" y="32" width="180" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="Xc4-yW-Y9U"/>
+                                                    <constraint firstAttribute="height" constant="140" id="hph-ws-bGE"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farmer dave wants you to protect his beloved sugarcrane crop in South Africa." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMw-G1-70w">
+                                                <rect key="frame" x="70" y="180" width="180" height="92"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="TUM-4h-3si"/>
+                                                    <constraint firstAttribute="height" constant="92" id="c6T-nM-PJ4"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="92" id="jtO-ep-NVN"/>
+                                                    <constraint firstAttribute="width" constant="180" id="nfc-vN-D29"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0x-Gc-Dw7">
+                                                <rect key="frame" x="105" y="275" width="110" height="30"/>
+                                                <color key="backgroundColor" red="0.19607843459999999" green="0.8156862855" blue="0.058823529630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="QmF-oK-agE"/>
+                                                    <constraint firstAttribute="height" constant="30" id="zsR-70-UYz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <state key="normal" title="Choose Dave">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onChoseDave:" destination="zkl-L5-qOP" eventType="touchUpInside" id="xuG-Sl-gYX"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmerDave" translatesAutoresizingMaskIntoConstraints="NO" id="K2E-lh-cDS">
+                                                <rect key="frame" x="70" y="345" width="180" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="mmA-3o-lkM"/>
+                                                    <constraint firstAttribute="height" constant="140" id="vpb-eP-9Y6"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="wYG-nF-MUO"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="yYn-Zd-EJ5"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farmer dave wants you to protect his beloved sugarcrane crop in South Africa." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdM-Eu-reG">
+                                                <rect key="frame" x="70" y="493" width="180" height="92"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="92" id="8Dg-qk-K7m"/>
+                                                    <constraint firstAttribute="width" constant="180" id="Xu9-Fa-pWo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKg-fr-BN7">
+                                                <rect key="frame" x="105" y="588" width="110" height="30"/>
+                                                <color key="backgroundColor" red="0.19607843459999999" green="0.8156862855" blue="0.058823529630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Bu4-XH-dxy"/>
+                                                    <constraint firstAttribute="width" constant="110" id="Y6k-oB-dmQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <state key="normal" title="Choose Marlon">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onChoseMarlon:" destination="zkl-L5-qOP" eventType="touchUpInside" id="R03-vt-ier"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="KKg-fr-BN7" firstAttribute="centerX" secondItem="mvF-5c-KVF" secondAttribute="centerX" id="7kI-2h-03l"/>
+                                            <constraint firstItem="EMw-G1-70w" firstAttribute="leading" secondItem="MHk-MG-B03" secondAttribute="leading" id="8Sc-uE-hzo"/>
+                                            <constraint firstItem="EMw-G1-70w" firstAttribute="top" secondItem="MHk-MG-B03" secondAttribute="bottom" constant="8" id="CGX-Lv-L9l"/>
+                                            <constraint firstItem="K2E-lh-cDS" firstAttribute="leading" secondItem="mvF-5c-KVF" secondAttribute="leading" constant="70" id="DDR-sz-R11"/>
+                                            <constraint firstItem="U0x-Gc-Dw7" firstAttribute="centerX" secondItem="mvF-5c-KVF" secondAttribute="centerX" id="Jpr-02-JUo"/>
+                                            <constraint firstAttribute="height" constant="660" id="Mqm-ZI-C9R"/>
+                                            <constraint firstItem="U0x-Gc-Dw7" firstAttribute="top" secondItem="EMw-G1-70w" secondAttribute="bottom" constant="3" id="Tbx-6m-zfL"/>
+                                            <constraint firstAttribute="trailing" secondItem="AdM-Eu-reG" secondAttribute="trailing" constant="70" id="c0i-rx-cbo"/>
+                                            <constraint firstItem="K2E-lh-cDS" firstAttribute="top" secondItem="U0x-Gc-Dw7" secondAttribute="bottom" constant="40" id="ec9-Ey-alb"/>
+                                            <constraint firstItem="AdM-Eu-reG" firstAttribute="top" secondItem="K2E-lh-cDS" secondAttribute="bottom" constant="8" id="fJu-Hk-JB6"/>
+                                            <constraint firstItem="AdM-Eu-reG" firstAttribute="leading" secondItem="mvF-5c-KVF" secondAttribute="leading" constant="70" id="gub-Oi-xYy"/>
+                                            <constraint firstItem="KKg-fr-BN7" firstAttribute="top" secondItem="AdM-Eu-reG" secondAttribute="bottom" constant="3" id="m4q-co-7UK"/>
+                                            <constraint firstItem="MHk-MG-B03" firstAttribute="leading" secondItem="mvF-5c-KVF" secondAttribute="leading" constant="70" id="mZS-FT-km6"/>
+                                            <constraint firstItem="MHk-MG-B03" firstAttribute="top" secondItem="mvF-5c-KVF" secondAttribute="top" constant="32" id="tuS-nB-PwF"/>
+                                            <constraint firstAttribute="trailing" secondItem="MHk-MG-B03" secondAttribute="trailing" constant="70" id="wQ9-zw-98q"/>
+                                            <constraint firstAttribute="trailing" secondItem="K2E-lh-cDS" secondAttribute="trailing" constant="70" id="zLZ-g9-1Z3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mvF-5c-KVF" secondAttribute="bottom" id="JQM-Na-fxL"/>
+                                    <constraint firstItem="mvF-5c-KVF" firstAttribute="leading" secondItem="Znw-wG-EPj" secondAttribute="leading" id="Rhz-G0-lYw"/>
+                                    <constraint firstItem="mvF-5c-KVF" firstAttribute="top" secondItem="Znw-wG-EPj" secondAttribute="top" id="wbH-jJ-eEh"/>
+                                    <constraint firstAttribute="trailing" secondItem="mvF-5c-KVF" secondAttribute="trailing" id="zmR-kl-Nlo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="zkl-L5-qOP" id="UVf-SU-fOx"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Znw-wG-EPj" firstAttribute="leading" secondItem="9Hm-ge-hCT" secondAttribute="leadingMargin" constant="-20" id="DJ5-Do-xyU"/>
+                            <constraint firstItem="Znw-wG-EPj" firstAttribute="bottom" secondItem="Z3Z-Sg-Cam" secondAttribute="top" id="FeZ-h2-QWZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Znw-wG-EPj" secondAttribute="trailing" constant="-20" id="Xd2-SC-g0g"/>
+                            <constraint firstItem="Znw-wG-EPj" firstAttribute="top" secondItem="b3Q-q6-CgX" secondAttribute="bottom" id="kLA-ST-nME"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OGc-Kn-zwk"/>
+                    <navigationItem key="navigationItem" title="Choose Farmer" id="OGc-Kn-zwk">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="dxO-bz-H3g"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentView" destination="mvF-5c-KVF" id="gPp-tb-nBZ"/>
+                        <outlet property="scrollView" destination="Znw-wG-EPj" id="c0w-qj-7dw"/>
+                        <segue destination="hBV-D0-niI" kind="push" identifier="toGameScreen" id="vFH-AV-16I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC5-3j-JgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="366"/>
+        </scene>
+        <!--Game Screen View Controller-->
+        <scene sceneID="wlU-ek-1GH">
+            <objects>
+                <viewController id="hBV-D0-niI" customClass="GameScreenViewController" customModule="bugCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ck7-uu-5qc"/>
+                        <viewControllerLayoutGuide type="bottom" id="e9j-pc-Qxj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="drL-gU-pmj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose marlon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyF-uP-R4S">
+                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WUD-vA-6s8"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="farmerChosen" destination="KyF-uP-R4S" id="dMi-Ah-i9o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wt0-Gd-FiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C2c-ih-CDK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jXW-AL-Luo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="q1s-Z7-ypb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zkl-L5-qOP" kind="relationship" relationship="rootViewController" id="ZEO-H7-z0K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jj-r3-kHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="576" y="366"/>
         </scene>
     </scenes>
     <resources>
         <image name="bugsTrail" width="640" height="1136"/>
+        <image name="farmerDave" width="180" height="140"/>
         <image name="frontPageGraphic" width="640" height="1136"/>
         <image name="logo_white" width="639" height="114"/>
     </resources>
