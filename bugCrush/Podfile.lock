@@ -1,10 +1,13 @@
 PODS:
+  - Firebase (2.4.2)
   - SwiftSpinner (0.8.0)
 
 DEPENDENCIES:
+  - Firebase
   - SwiftSpinner (~> 0.8.0)
 
 SPEC CHECKSUMS:
+  Firebase: 5e898ed5012c81d28ca5fae1113c6b61a172bc6d
   SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
 
 COCOAPODS: 0.39.0

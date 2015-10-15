@@ -10,6 +10,8 @@
 		73A19428A778878A1CDE8C50 /* Pods_bugCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E950E11F8CFBDC0C98CC94 /* Pods_bugCrush.framework */; };
 		8D66D1EC1BCEBA2000F9A78D /* PickFarmerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */; };
 		8D66D1EE1BCEC72F00F9A78D /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */; };
+		8DA9468B1BD0428C005DD70D /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */; };
+		8DA9468E1BD0456F005DD70D /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9468D1BD0456F005DD70D /* ScoreCell.swift */; };
 		B58BC56A1BC716AB00A6F762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC5691BC716AB00A6F762 /* AppDelegate.swift */; };
 		B58BC56C1BC716AB00A6F762 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC56B1BC716AB00A6F762 /* FrontPageViewController.swift */; };
 		B58BC56F1BC716AB00A6F762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58BC56D1BC716AB00A6F762 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		3CBA07902292BE010FAE42A7 /* Pods-bugCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bugCrush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bugCrush/Pods-bugCrush.debug.xcconfig"; sourceTree = "<group>"; };
 		8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFarmerViewController.swift; sourceTree = "<group>"; };
 		8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
+		8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		8DA9468D1BD0456F005DD70D /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		B58BC5661BC716AB00A6F762 /* bugCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bugCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58BC5691BC716AB00A6F762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58BC56B1BC716AB00A6F762 /* FrontPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8DA9468C1BD0454E005DD70D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8DA9468D1BD0456F005DD70D /* ScoreCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		B58BC55D1BC716AB00A6F762 = {
 			isa = PBXGroup;
 			children = (
@@ -124,9 +136,11 @@
 		B58BC5681BC716AB00A6F762 /* bugCrush */ = {
 			isa = PBXGroup;
 			children = (
+				8DA9468C1BD0454E005DD70D /* Cells */,
 				B58BC56B1BC716AB00A6F762 /* FrontPageViewController.swift */,
 				8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */,
 				8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */,
+				8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */,
 				B58BC56D1BC716AB00A6F762 /* Main.storyboard */,
 				8D6681131BC71B84004F9A16 /* Supporting Files */,
 			);
@@ -341,9 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA9468B1BD0428C005DD70D /* HighScoresViewController.swift in Sources */,
 				B58BC56C1BC716AB00A6F762 /* FrontPageViewController.swift in Sources */,
 				B58BC56A1BC716AB00A6F762 /* AppDelegate.swift in Sources */,
 				8D66D1EE1BCEC72F00F9A78D /* GameScreenViewController.swift in Sources */,
+				8DA9468E1BD0456F005DD70D /* ScoreCell.swift in Sources */,
 				8D66D1EC1BCEBA2000F9A78D /* PickFarmerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

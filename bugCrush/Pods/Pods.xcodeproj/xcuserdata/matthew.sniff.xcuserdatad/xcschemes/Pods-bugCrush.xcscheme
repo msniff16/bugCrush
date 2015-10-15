@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '45D40DAB6BB0AF4CDBC04290'
+               BlueprintIdentifier = 'D34DCD25EE6AF1872C3BDF4F'
                BlueprintName = 'Pods-bugCrush'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_bugCrush.framework'>

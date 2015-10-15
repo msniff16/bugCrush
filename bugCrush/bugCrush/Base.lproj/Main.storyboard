@@ -228,12 +228,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose marlon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyF-uP-R4S">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chose marlon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyF-uP-R4S">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-si-oDz">
+                                <rect key="frame" x="112" y="172" width="74" height="30"/>
+                                <state key="normal" title="see scores"/>
+                                <connections>
+                                    <segue destination="2BS-nN-uxI" kind="push" id="rDV-eH-R9D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -246,6 +253,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt0-Gd-FiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1406" y="366"/>
+        </scene>
+        <!--High Scores View Controller-->
+        <scene sceneID="5jf-EU-g1Z">
+            <objects>
+                <viewController id="2BS-nN-uxI" customClass="HighScoresViewController" customModule="bugCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UrN-WG-CAr"/>
+                        <viewControllerLayoutGuide type="bottom" id="iH1-na-zmc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kje-Bv-N9h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eDQ-PX-aRn">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreCell" id="1g8-Kf-cBT" customClass="ScoreCell" customModule="bugCrush" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1g8-Kf-cBT" id="IcY-Qy-MSe">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXC-eP-wyB">
+                                                    <rect key="frame" x="8" y="11" width="118" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="score" destination="zXC-eP-wyB" id="0na-mB-3aC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2BS-nN-uxI" id="O7I-Nw-Hgx"/>
+                                    <outlet property="delegate" destination="2BS-nN-uxI" id="9N1-nd-Jaj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eDQ-PX-aRn" firstAttribute="leading" secondItem="kje-Bv-N9h" secondAttribute="leading" id="4Yu-nC-3rT"/>
+                            <constraint firstItem="eDQ-PX-aRn" firstAttribute="top" secondItem="UrN-WG-CAr" secondAttribute="bottom" id="QvB-0G-XfD"/>
+                            <constraint firstItem="eDQ-PX-aRn" firstAttribute="bottom" secondItem="iH1-na-zmc" secondAttribute="top" id="fh6-tq-3DB"/>
+                            <constraint firstAttribute="trailing" secondItem="eDQ-PX-aRn" secondAttribute="trailing" id="tr0-Qw-txa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zzE-zl-KW3"/>
+                    <connections>
+                        <outlet property="tableView" destination="eDQ-PX-aRn" id="RZ0-Wm-cXL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hta-G1-xMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C2c-ih-CDK">

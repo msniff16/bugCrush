@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Firebase
+
+https://www.firebase.com/terms/terms-of-service.html
+
 ## SwiftSpinner
 
 Copyright (c) 2015 Marin Todorov <touch-code-magazine@underplot.com>

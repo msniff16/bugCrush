@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'bugCrush' do
     pod 'SwiftSpinner', '~> 0.8.0'
+    pod 'Firebase'
 end
 
 target 'bugCrushTests' do

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Firebase.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-bugCrush.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>024CF0BDFBE80E503D3AAC75D76C7693</key>
+		<key>43AE7D4CC329593BAE12B89FE826DEDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A48FCC727F4AA6F5A8B564B1FA8D5AE</key>
+		<key>8880B95E702C6AD02318A9BE125A0136</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7AC9326D819482593FE118E915409D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
