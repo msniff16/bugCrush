@@ -12,6 +12,7 @@
 		8D66D1EE1BCEC72F00F9A78D /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */; };
 		8DA9468B1BD0428C005DD70D /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */; };
 		8DA9468E1BD0456F005DD70D /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9468D1BD0456F005DD70D /* ScoreCell.swift */; };
+		B55E87841BD16964009C3B04 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E87831BD16964009C3B04 /* CombineViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B58BC56A1BC716AB00A6F762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC5691BC716AB00A6F762 /* AppDelegate.swift */; };
 		B58BC56C1BC716AB00A6F762 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC56B1BC716AB00A6F762 /* FrontPageViewController.swift */; };
 		B58BC56F1BC716AB00A6F762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58BC56D1BC716AB00A6F762 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 		8DA9468D1BD0456F005DD70D /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
+		B55E87831BD16964009C3B04 /* CombineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
 		B58BC5661BC716AB00A6F762 /* bugCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bugCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58BC5691BC716AB00A6F762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58BC56B1BC716AB00A6F762 /* FrontPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */,
 				8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */,
 				8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */,
+				B55E87831BD16964009C3B04 /* CombineViewController.swift */,
 				B58BC56D1BC716AB00A6F762 /* Main.storyboard */,
 				8D6681131BC71B84004F9A16 /* Supporting Files */,
 			);
@@ -359,6 +362,7 @@
 				B58BC56C1BC716AB00A6F762 /* FrontPageViewController.swift in Sources */,
 				B58BC56A1BC716AB00A6F762 /* AppDelegate.swift in Sources */,
 				8D66D1EE1BCEC72F00F9A78D /* GameScreenViewController.swift in Sources */,
+				B55E87841BD16964009C3B04 /* CombineViewController.swift in Sources */,
 				8DA9468E1BD0456F005DD70D /* ScoreCell.swift in Sources */,
 				8D66D1EC1BCEBA2000F9A78D /* PickFarmerViewController.swift in Sources */,
 			);
