@@ -49,7 +49,7 @@ class PickFarmerViewController: UIViewController, UIScrollViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         if let gameScreenVC = segue.destinationViewController as? GameScreenViewController {
-            gameScreenVC.farmerName = sender as? String
+           // gameScreenVC.farmerName = sender as? String
         }
         
     }
