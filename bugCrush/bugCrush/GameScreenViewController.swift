@@ -19,4 +19,8 @@ class GameScreenViewController: UIViewController {
         farmerChosen.text = farmerName
 
     }
+    
+    
+    
+    
 }
