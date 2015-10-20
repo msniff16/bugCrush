@@ -325,9 +325,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="combine" translatesAutoresizingMaskIntoConstraints="NO" id="4pn-SA-JEN">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNA-Oa-dfV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
@@ -337,9 +334,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="combine" destination="4pn-SA-JEN" id="M6O-a6-j6t"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLu-1d-MTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -367,7 +361,6 @@
     </scenes>
     <resources>
         <image name="bugsTrail" width="640" height="1136"/>
-        <image name="combine" width="60" height="60"/>
         <image name="farmerDave" width="180" height="140"/>
         <image name="frontPageGraphic" width="640" height="1136"/>
         <image name="logo_white" width="639" height="114"/>
