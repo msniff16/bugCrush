@@ -243,11 +243,16 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KLF-uV-4Sm" firstAttribute="centerX" secondItem="drL-gU-pmj" secondAttribute="centerX" id="GGL-hc-CES"/>
+                            <constraint firstItem="KLF-uV-4Sm" firstAttribute="centerY" secondItem="drL-gU-pmj" secondAttribute="centerY" id="x8N-I9-O8T"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WUD-vA-6s8"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="farmerChosen" destination="KyF-uP-R4S" id="dMi-Ah-i9o"/>
+                        <outlet property="target" destination="KLF-uV-4Sm" id="vPV-HO-b6r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt0-Gd-FiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,6 +339,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Corn3" width="120" height="120"/>
+        <image name="Target4" width="512" height="512"/>
+        <image name="arrow-down" width="128" height="128"/>
+        <image name="arrow-left" width="128" height="128"/>
+        <image name="arrow-right" width="128" height="128"/>
+        <image name="arrow-up" width="128" height="128"/>
         <image name="bugsTrail" width="640" height="1136"/>
         <image name="farmerDave" width="180" height="140"/>
         <image name="frontPageGraphic" width="640" height="1136"/>
