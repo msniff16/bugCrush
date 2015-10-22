@@ -1,4 +1,3 @@
-//
 //  CombineViewController.swift
 //  bugCrush
 //
@@ -31,85 +30,88 @@ class CombineViewController: UIViewController {
         let combineHeight = Int(60)
         
         //calculate vertical translation distance
-        vertTransDistance = screenHeight - combineHeight - 30
+        vertTransDistance = screenHeight - combineHeight
         
         //calculate number of animations in loops
         vertTrans = (screenWidth / combineWidth) / 2
         
         //global variables to save location of combine after each loop
-        xLocation = CGFloat(30)
-        yLocation = CGFloat(30)
+        xLocation = CGFloat(0)
+        yLocation = CGFloat(0)
         
-        let imageName = "combine.png"
-        let image = UIImage(named: imageName)
+        let image = UIImage(named: "combine.png")
         combine = UIImageView(image: image!)
         combine!.frame = CGRect(x: combineWidth, y: combineHeight, width: 60, height: 60)
         view.addSubview(combine!)
         
         //get latest location of combine
-        combine!.center.x = xLocation!
-        combine!.center.y = yLocation!
-
+        combine!.frame.origin.x = xLocation!
+        combine!.frame.origin.y = yLocation!
+        
     }
-
-
+    
+    
     @IBAction func moveCombine(sender: AnyObject) {
-    
+        
         animateCombine(loopCount)
-    
+        
     }
     
     func animateCombine(loopCount: Int) {
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.combine!.center.y += CGFloat(self.vertTransDistance!)
-            print("move down")
-        }) { (completed) -> Void in
-           
-            
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.combine!.transform = CGAffineTransformMakeRotation(CGFloat(-3 * M_PI))
-            print("rotate")
-        }, completion: { (completed) -> Void in
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.combine!.center.x += CGFloat(60)
-            print("move right")
-            }, completion: { (completed) -> Void in
-            
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.combine!.center.y -= CGFloat(self.vertTransDistance!)
-            print("move up")
-        }, completion: { (completed) -> Void in
-            
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.combine!.transform = CGAffineTransformMakeRotation(CGFloat(2 * M_PI))
-            print("rotate")
-            }, completion: { (completed) -> Void in
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.combine!.center.x += CGFloat(60)
-            print("move right again")
-            }, completion: { (completed) -> Void in
-            
-                
-            //save locations
-            self.xLocation = self.combine!.center.x
-            self.yLocation = self.combine!.center.y
-            
-            self.loopCount += 1
-            
-            if(self.loopCount < self.vertTrans!) {
-                self.animateCombine(self.loopCount)
-            }
-            
-        })
-        })
-        })
-        })
-        })
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+            // animation
+            }) { (completed) -> Void in
+                // done
         }
-    
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.combine!.frame.origin.y += CGFloat(self.vertTransDistance!)
+            print("move down")
+            }) { (completed) -> Void in
+                
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.combine!.transform = CGAffineTransformMakeRotation(CGFloat(-3 * M_PI))
+                    print("rotate")
+                    }, completion: { (completed) -> Void in
+                        
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.combine!.frame.origin.x += CGFloat(60)
+                            print("move right")
+                            }, completion: { (completed) -> Void in
+                                
+                                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                                    self.combine!.frame.origin.y -= CGFloat(self.vertTransDistance!)
+                                    print("move up")
+                                    }, completion: { (completed) -> Void in
+                                        
+                                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                                            self.combine!.transform = CGAffineTransformMakeRotation(CGFloat(2 * M_PI))
+                                            print("rotate")
+                                            }, completion: { (completed) -> Void in
+                                                
+                                                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                                                    self.combine!.frame.origin.x += CGFloat(60)
+                                                    print("move right again")
+                                                    }, completion: { (completed) -> Void in
+                                                        
+                                                        
+                                                        //save locations
+                                                        self.xLocation = self.combine!.frame.origin.x
+                                                        self.yLocation = self.combine!.frame.origin.y
+                                                        
+                                                        self.loopCount += 1
+                                                        
+                                                        if(self.loopCount < self.vertTrans!) {
+                                                            self.animateCombine(self.loopCount)
+                                                        }
+                                                        
+                                                })
+                                        })
+                                })
+                        })
+                })
+        }
+        
     }
     
 }
