@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameScreenViewController: UIViewController {
 
@@ -74,71 +75,34 @@ class GameScreenViewController: UIViewController {
             }
         }
         
+        // call startGame() on a timer
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "startGame", userInfo: nil, repeats: true)
-        
-        //startGame()
         
     }
     
-    //var i = 0
-    
     // game start
     func startGame() {
-
-            //target.center.y += 40
         
-            //i += 1
-            //let seconds = 1.0
-            //let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-            //let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            
-            //dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                
-                // here code perfomed with delay
-                let bugImage = UIImage(named: "pesticide2")
-                let bugImageView = UIImageView(image: bugImage!)
-                //bugImageView.center = CGPoint(x: 60+self.i*40, y: 60+self.i*40)
-                let randomX: Int = Int(arc4random_uniform(800))
-                let randomY: Int = Int(arc4random_uniform(800))
-                print(random)
-                bugImageView.center = CGPoint(x: 260+randomX, y:260+randomY)
-                bugImageView.frame.size = CGSize(width: 40.0, height: 40.0)
-                
-                // add current bug's position to array
-                self.bugPositions.append(bugImageView)
-                
-                self.wallpaperView.addSubview(bugImageView)
-                //self.startGame()
-                
-                
-                //self.target.center.y += 40
-
-            //})
-
-
+        // here code perfomed with delay
+        let bugImage = UIImage(named: "pesticide2")
+        let bugImageView = UIImageView(image: bugImage!)
+        //bugImageView.center = CGPoint(x: 60+self.i*40, y: 60+self.i*40)
+        let randomX: Int = Int(arc4random_uniform(800))
+        let randomY: Int = Int(arc4random_uniform(800))
+        print(random)
+        bugImageView.center = CGPoint(x: 260+randomX, y:260+randomY)
+        bugImageView.frame.size = CGSize(width: 40.0, height: 40.0)
+        
+        // add current bug's position to array
+        self.bugPositions.append(bugImageView)
+        
+        self.wallpaperView.addSubview(bugImageView)
         
         print("\(target.center.x)")
         print("\(target.center.y)")
     }
     
-    // CREATE IMAGE IN CODE
-    
-//    var bugImage = UIImage(named: "pesticide2")
-//    var bugImageView = UIImageView(image: bugImage!)
-    
-    
-    
-    
-    
-    // FIGURE OUT THE FRAME OF THE SCREEN TO SET LIMITS ON THE TARGET
-    
-    
-    
-    
-    
-    
     // MANAGEMENT OF THE ARROWS AND TARGET
-    
     @IBAction func upArrow(sender: AnyObject) {
         print("up")
         //target.center = CGPoint(x: target.center.x, y: target.center.y - 20)
@@ -163,15 +127,7 @@ class GameScreenViewController: UIViewController {
         print("left")
         print("\(target.center.x)")
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     // MANAGEMENT OF BUG KILLING BUTTONS
     
     @IBAction func pestKill(sender: AnyObject) {
@@ -190,14 +146,8 @@ class GameScreenViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+    var player : AVAudioPlayer! // will be Optional, must supply initializer
+
     
     // check if gun is close enough to bug to kill it
     func nearBug() {
@@ -213,6 +163,17 @@ class GameScreenViewController: UIViewController {
                 print("DESTROYED!")
                 i.removeFromSuperview()
                 bugPositions.removeAtIndex(index)
+                
+                // play sound
+                do {
+                    try player = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("gunShot", ofType: "mp3")!), fileTypeHint:nil)
+                    player.numberOfLoops = 1
+                    player.prepareToPlay()
+                    player.play()
+                } catch {
+                    //Handle the error
+                    print("CANNOT PLAY!")
+                }
                 
             }
             

@@ -10,6 +10,8 @@
 		73A19428A778878A1CDE8C50 /* Pods_bugCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E950E11F8CFBDC0C98CC94 /* Pods_bugCrush.framework */; };
 		8D66D1EC1BCEBA2000F9A78D /* PickFarmerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */; };
 		8D66D1EE1BCEC72F00F9A78D /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */; };
+		8DA8536E1BD9595A006C35E6 /* gunShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DA8536D1BD9595A006C35E6 /* gunShot.mp3 */; };
+		8DA853701BD9596A006C35E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA8536F1BD9596A006C35E6 /* AVFoundation.framework */; };
 		8DA9468B1BD0428C005DD70D /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */; };
 		8DA9468E1BD0456F005DD70D /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9468D1BD0456F005DD70D /* ScoreCell.swift */; };
 		B58BC56A1BC716AB00A6F762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC5691BC716AB00A6F762 /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 		3CBA07902292BE010FAE42A7 /* Pods-bugCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bugCrush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bugCrush/Pods-bugCrush.debug.xcconfig"; sourceTree = "<group>"; };
 		8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFarmerViewController.swift; sourceTree = "<group>"; };
 		8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
+		8DA8536D1BD9595A006C35E6 /* gunShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gunShot.mp3; sourceTree = "<group>"; };
+		8DA8536F1BD9596A006C35E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 		8DA9468D1BD0456F005DD70D /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		B58BC5661BC716AB00A6F762 /* bugCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bugCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA853701BD9596A006C35E6 /* AVFoundation.framework in Frameworks */,
 				73A19428A778878A1CDE8C50 /* Pods_bugCrush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +93,7 @@
 		658BB23395229ADC11EBE860 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DA8536F1BD9596A006C35E6 /* AVFoundation.framework */,
 				F0E950E11F8CFBDC0C98CC94 /* Pods_bugCrush.framework */,
 			);
 			name = Frameworks;
@@ -96,6 +102,7 @@
 		8D6681131BC71B84004F9A16 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8DA8536D1BD9595A006C35E6 /* gunShot.mp3 */,
 				B58BC5701BC716AB00A6F762 /* Assets.xcassets */,
 				B58BC5691BC716AB00A6F762 /* AppDelegate.swift */,
 				B58BC5751BC716AB00A6F762 /* Info.plist */,
@@ -282,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58BC5711BC716AB00A6F762 /* Assets.xcassets in Resources */,
+				8DA8536E1BD9595A006C35E6 /* gunShot.mp3 in Resources */,
 				B58BC56F1BC716AB00A6F762 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
