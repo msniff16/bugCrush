@@ -176,28 +176,31 @@ class GameScreenViewController: UIViewController {
     
     // MANAGEMENT OF THE ARROWS AND TARGET
     @IBAction func upArrow(sender: AnyObject) {
-        print("up")
-        //target.center = CGPoint(x: target.center.x, y: target.center.y - 20)
         self.target.center.y -= targetMoveAmount
-        print("\(target.center.y)")
+        if(self.target.center.y <= 0) {
+            self.target.center.y = 0
+        }
     }
 
     @IBAction func rightArrow(sender: AnyObject) {
-        print("right")
         target.center.x += targetMoveAmount
-        print("\(target.center.x)")
+        if(self.target.center.x >= self.view.bounds.size.width) {
+            self.target.center.x = self.view.bounds.size.width
+        }
     }
     
     @IBAction func downArrow(sender: AnyObject) {
         target.center.y += targetMoveAmount
-        print("down")
-                print("\(target.center.y)")
+        if(self.target.center.y >= self.view.bounds.size.height) {
+            self.target.center.y = self.view.bounds.size.height
+        }
     }
     
     @IBAction func leftArrow(sender: AnyObject) {
         target.center.x -= targetMoveAmount
-        print("left")
-        print("\(target.center.x)")
+        if(self.target.center.x <= 0) {
+            self.target.center.x = 0
+        }
     }
 
     // MANAGEMENT OF BUG KILLING BUTTONS

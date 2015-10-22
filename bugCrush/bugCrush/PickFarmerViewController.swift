@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftSpinner
 // use spinner here: https://github.com/icanzilb/SwiftSpinner
 
 class PickFarmerViewController: UIViewController, UIScrollViewDelegate {
