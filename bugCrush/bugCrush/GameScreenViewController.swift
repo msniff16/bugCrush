@@ -13,7 +13,17 @@ class GameScreenViewController: UIViewController {
     var farmerName: String?
     @IBOutlet weak var farmerChosen: UILabel!
     @IBOutlet weak var wallpaperView: UIView!
-    @IBOutlet weak var target: UIImageView!
+    @IBOutlet weak var target: UIImageView! {
+        
+        didSet {
+            print("TARGET SET: \(target.center)")
+        }
+        
+    }
+
+    // Create timer
+    var timer = NSTimer()
+
     var targetOrigin: CGPoint!
     var bugPositions: [UIImageView] = []
     
@@ -60,21 +70,25 @@ class GameScreenViewController: UIViewController {
             }
         }
         
-        startGame()
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "startGame", userInfo: nil, repeats: true)
+        
+        //startGame()
         
     }
     
-    var i = 0
+    //var i = 0
     
     // game start
     func startGame() {
 
-            i += 1
-            let seconds = 1.0
-            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            target.center.y += 40
+        
+            //i += 1
+            //let seconds = 1.0
+            //let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            //let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            //dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                 
                 // here code perfomed with delay
                 let bugImage = UIImage(named: "pesticide2")
@@ -90,10 +104,15 @@ class GameScreenViewController: UIViewController {
                 self.bugPositions.append(bugImageView)
                 
                 self.wallpaperView.addSubview(bugImageView)
-                self.startGame()
+                //self.startGame()
+                
+                
+                //self.target.center.y += 40
 
-            })
-            
+            //})
+
+
+        
         print("\(target.center.x)")
         print("\(target.center.y)")
     }
@@ -119,7 +138,7 @@ class GameScreenViewController: UIViewController {
     @IBAction func upArrow(sender: AnyObject) {
         print("up")
         //target.center = CGPoint(x: target.center.x, y: target.center.y - 20)
-        target.center.y -= targetMoveAmount
+        self.target.center.y -= targetMoveAmount
         print("\(target.center.y)")
     }
 
@@ -142,6 +161,13 @@ class GameScreenViewController: UIViewController {
     }
     
     
+    
+    
+    
+    
+    
+    
+    
     // MANAGEMENT OF BUG KILLING BUTTONS
     
     @IBAction func pestKill(sender: AnyObject) {
@@ -158,6 +184,16 @@ class GameScreenViewController: UIViewController {
     @IBAction func roundup(sender: AnyObject) {
         print("roundup")
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // check if gun is close enough to bug to kill it
     func nearBug() {
