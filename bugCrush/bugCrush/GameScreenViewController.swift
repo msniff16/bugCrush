@@ -11,10 +11,22 @@ import AVFoundation
 
 class GameScreenViewController: UIViewController {
 
+    //Bomb counter = easy
+    // Speeed bug creation - see timeInterval and divide by something each level
+    //Count bugs killed and shots taken - then display on screen
+    // Calculate 'bug seconds' and implied yield
+    
+    //OPTIONALS
+    //
+    
     var farmerName: String?
-    var timeInterval: Double = 0.1
+    var timeInterval: Double = 0.5
     var clock: Int = 0
     var alertShown = false
+    var levelTime = 15
+    var level = 0
+    var cornSize = 5
+    var cornCollection: [UIImageView] = []
     
     @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var farmerChosen: UILabel!
@@ -63,22 +75,38 @@ class GameScreenViewController: UIViewController {
             self.clockLabel.text = String(self.clock)
             
             // next level reached
-            if(self.clock == 10) {
+            if((self.clock % self.levelTime) == 0) {
+                
+                // Get level
+                self.level = (self.clock / self.levelTime) + 1
+                
+                if self.level == 11 {
+                    self.performSegueWithIdentifier("highScore", sender: nil)
+                    
+                    //
+                }
                 
                 // alert shown 
                 self.alertShown = true
                 
                 // pop up
-                let alert = UIAlertController(title: "Alert!", message: "Level 2!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Oh no!", style: UIAlertActionStyle.Default, handler: {(alert :UIAlertAction!) in
+                let alert = UIAlertController(title: "Alert!", message: "Growth Stage: \(self.level)!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Oh snap!", style: UIAlertActionStyle.Default, handler: {(alert :UIAlertAction!) in
                     // restart bugs and timer
                     self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
                     self.clockTimer()
+                    self.alertShown = false
                 }))
                 self.presentViewController(alert, animated: true, completion: nil)
                 
                 // stop the bugs
                 self.timer.invalidate()
+                
+                //Grow the corn
+                
+                for (index,corn) in self.cornCollection.enumerate() {
+                    corn.frame.size = CGSize(width: (self.cornSize * self.level), height: (self.cornSize * self.level))
+                }
                 
             } else {
                 self.clockTimer()
@@ -110,7 +138,8 @@ class GameScreenViewController: UIViewController {
                 var cornImageView = UIImageView(image: cornImage!)
                 print("x: \(20+i*40), y: \(20+j*40)")
                 cornImageView.center = CGPoint(x: 60+i*40, y: 60+j*40)
-                cornImageView.frame.size = CGSize(width: 12.0, height: 12.0)
+                cornImageView.frame.size = CGSize(width: cornSize, height: cornSize)
+                cornCollection.append(cornImageView)
                 wallpaperView.addSubview(cornImageView)
                 
             }
@@ -118,6 +147,8 @@ class GameScreenViewController: UIViewController {
         
         // call startGame() on a timer
         timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
+        
+        wallpaperView.bringSubviewToFront(clockLabel)
         
     }
     

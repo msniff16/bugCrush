@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -231,20 +231,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vev-ZV-6GP">
                                 <rect key="frame" x="-8" y="0.0" width="336" height="568"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5a-z8-SSe">
-                                        <rect key="frame" x="124" y="18" width="89" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="89" id="Rdb-GN-1Fh"/>
-                                        </constraints>
-                                        <state key="normal" title="start game">
-                                            <color key="titleColor" red="0.9727170678" green="1" blue="0.99558114180000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startGame:" destination="hBV-D0-niI" eventType="touchUpInside" id="luP-Ac-Lp8"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YML-UP-d9w">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YML-UP-d9w">
                                         <rect key="frame" x="245" y="21" width="60" height="23.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="3Fu-vI-BZR"/>
@@ -256,7 +243,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="YML-UP-d9w" firstAttribute="centerY" secondItem="C5a-z8-SSe" secondAttribute="centerY" id="5aV-M8-pWC"/>
                                     <constraint firstAttribute="trailing" secondItem="YML-UP-d9w" secondAttribute="trailing" constant="31" id="APK-ch-gge"/>
                                 </constraints>
                             </view>
@@ -383,13 +369,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Vev-ZV-6GP" secondAttribute="trailing" constant="-24" id="0a5-fQ-yjj"/>
-                            <constraint firstItem="C5a-z8-SSe" firstAttribute="top" secondItem="ck7-uu-5qc" secondAttribute="bottom" constant="-2" id="6Lt-wB-4CK"/>
                             <constraint firstItem="Vev-ZV-6GP" firstAttribute="top" secondItem="ck7-uu-5qc" secondAttribute="bottom" constant="-20" id="AXL-St-40n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hhd-vv-q7V" secondAttribute="trailing" constant="-20" id="Dpf-SF-OT7"/>
                             <constraint firstItem="Vev-ZV-6GP" firstAttribute="leading" secondItem="drL-gU-pmj" secondAttribute="leadingMargin" constant="-24" id="G7c-tx-aUg"/>
                             <constraint firstItem="KLF-uV-4Sm" firstAttribute="centerX" secondItem="drL-gU-pmj" secondAttribute="centerX" id="GGL-hc-CES"/>
                             <constraint firstItem="e9j-pc-Qxj" firstAttribute="top" secondItem="hhd-vv-q7V" secondAttribute="bottom" id="HiD-GU-l5G"/>
-                            <constraint firstItem="C5a-z8-SSe" firstAttribute="centerX" secondItem="drL-gU-pmj" secondAttribute="centerX" id="Ktl-eV-R1V"/>
                             <constraint firstItem="hhd-vv-q7V" firstAttribute="leading" secondItem="drL-gU-pmj" secondAttribute="leadingMargin" constant="-20" id="Otg-NU-bDO"/>
                             <constraint firstItem="KLF-uV-4Sm" firstAttribute="centerY" secondItem="drL-gU-pmj" secondAttribute="centerY" id="x8N-I9-O8T"/>
                         </constraints>
@@ -400,11 +384,31 @@
                         <outlet property="clockLabel" destination="YML-UP-d9w" id="ESY-df-nfp"/>
                         <outlet property="target" destination="KLF-uV-4Sm" id="vPV-HO-b6r"/>
                         <outlet property="wallpaperView" destination="Vev-ZV-6GP" id="ITt-jk-vzl"/>
+                        <segue destination="ANo-CH-xKE" kind="push" identifier="highScore" id="cg3-SH-leH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt0-Gd-FiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1433" y="374"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Q50-PD-Mn4">
+            <objects>
+                <viewController id="ANo-CH-xKE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0e6-RA-zf6"/>
+                        <viewControllerLayoutGuide type="bottom" id="ceX-WA-8BC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="88c-U2-dYr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OP5-zZ-Ezb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64Y-pb-Aj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="374"/>
         </scene>
         <!--High Scores View Controller-->
         <scene sceneID="5jf-EU-g1Z">
@@ -463,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hta-G1-xMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="366"/>
+            <point key="canvasLocation" x="2142" y="366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C2c-ih-CDK">
