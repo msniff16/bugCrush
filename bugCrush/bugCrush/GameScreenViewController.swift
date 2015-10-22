@@ -133,11 +133,24 @@ class GameScreenViewController: UIViewController {
     @IBAction func pestKill(sender: AnyObject) {
         print("pest")
         nearBug()
+        
+        
+        // play sound
+        do {
+            try player = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("gunShot", ofType: "mp3")!), fileTypeHint:nil)
+            player.numberOfLoops = 1
+            player.prepareToPlay()
+            player.play()
+        } catch {
+            //Handle the error
+            print("CANNOT PLAY!")
+        }
+        
     }
     
     
     @IBAction func herbKill(sender: AnyObject) {
-        print("herb")        
+        print("herb")
     }
     
     
@@ -164,16 +177,6 @@ class GameScreenViewController: UIViewController {
                 i.removeFromSuperview()
                 bugPositions.removeAtIndex(index)
                 
-                // play sound
-                do {
-                    try player = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("gunShot", ofType: "mp3")!), fileTypeHint:nil)
-                    player.numberOfLoops = 1
-                    player.prepareToPlay()
-                    player.play()
-                } catch {
-                    //Handle the error
-                    print("CANNOT PLAY!")
-                }
                 
             }
             
