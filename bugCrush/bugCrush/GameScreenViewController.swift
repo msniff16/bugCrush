@@ -15,6 +15,7 @@ class GameScreenViewController: UIViewController {
     @IBOutlet weak var wallpaperView: UIView!
     @IBOutlet weak var target: UIImageView!
     var targetOrigin: CGPoint!
+    var bugPositions: [UIImageView] = []
     
     var targetMoveAmount: CGFloat!
     
@@ -59,22 +60,42 @@ class GameScreenViewController: UIViewController {
             }
         }
         
-        for var i in 0...10 {
-            print("bug created \(i)")
-            var bugImage = UIImage(named: "pesticide2")
-            var bugImageView = UIImageView(image: bugImage!)
-            bugImageView.center = CGPoint(x: 60+i*40, y: 60+i*40)
-            bugImageView.frame.size = CGSize(width: 40.0, height: 40.0)
-            UIView.animateWithDuration(0, delay: 10, options: [], animations: { () -> Void in
-
-                dispatch_async(dispatch_get_main_queue()) { // 2
-                    self.wallpaperView.addSubview(bugImageView)
-                }
-                }, completion: { (completed) -> Void in
-                    //nothing
-            })
-        }
+        startGame()
         
+    }
+    
+    var i = 0
+    
+    // game start
+    func startGame() {
+
+            i += 1
+            let seconds = 1.0
+            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                
+                // here code perfomed with delay
+                let bugImage = UIImage(named: "pesticide2")
+                let bugImageView = UIImageView(image: bugImage!)
+                //bugImageView.center = CGPoint(x: 60+self.i*40, y: 60+self.i*40)
+                let randomX: Int = Int(arc4random_uniform(800))
+                let randomY: Int = Int(arc4random_uniform(800))
+                print(random)
+                bugImageView.center = CGPoint(x: 260+randomX, y:260+randomY)
+                bugImageView.frame.size = CGSize(width: 40.0, height: 40.0)
+                
+                // add current bug's position to array
+                self.bugPositions.append(bugImageView)
+                
+                self.wallpaperView.addSubview(bugImageView)
+                self.startGame()
+
+            })
+            
+        print("\(target.center.x)")
+        print("\(target.center.y)")
     }
     
     // CREATE IMAGE IN CODE
@@ -99,34 +120,33 @@ class GameScreenViewController: UIViewController {
         print("up")
         //target.center = CGPoint(x: target.center.x, y: target.center.y - 20)
         target.center.y -= targetMoveAmount
+        print("\(target.center.y)")
     }
 
     @IBAction func rightArrow(sender: AnyObject) {
         print("right")
         target.center.x += targetMoveAmount
+        print("\(target.center.x)")
     }
     
     @IBAction func downArrow(sender: AnyObject) {
         target.center.y += targetMoveAmount
         print("down")
+                print("\(target.center.y)")
     }
     
     @IBAction func leftArrow(sender: AnyObject) {
         target.center.x -= targetMoveAmount
         print("left")
+        print("\(target.center.x)")
     }
-    
-    
-    
-    
-    
-    
     
     
     // MANAGEMENT OF BUG KILLING BUTTONS
     
     @IBAction func pestKill(sender: AnyObject) {
         print("pest")
+        nearBug()
     }
     
     
@@ -139,6 +159,31 @@ class GameScreenViewController: UIViewController {
         print("roundup")
     }
     
+    // check if gun is close enough to bug to kill it
+    func nearBug() {
+        
+        let currentPosition = target.center
+        
+        // loop thru all bugs
+        for (index, i) in bugPositions.enumerate() {
+            
+            // bug is hit
+            if( sqrt(square(Double(currentPosition.x) - Double(i.center.x))) + sqrt(square(Double(currentPosition.y) - Double(i.center.y))) < 100) {
+                
+                print("DESTROYED!")
+                i.removeFromSuperview()
+                bugPositions.removeAtIndex(index)
+                
+            }
+            
+        }
+
+        
+    }
+    
+    func square(num: Double) -> Double {
+        return num * num
+    }
     
     
 }
