@@ -244,8 +244,21 @@
                                             <action selector="startGame:" destination="hBV-D0-niI" eventType="touchUpInside" id="luP-Ac-Lp8"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YML-UP-d9w">
+                                        <rect key="frame" x="245" y="21" width="60" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="3Fu-vI-BZR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="YML-UP-d9w" firstAttribute="centerY" secondItem="C5a-z8-SSe" secondAttribute="centerY" id="5aV-M8-pWC"/>
+                                    <constraint firstAttribute="trailing" secondItem="YML-UP-d9w" secondAttribute="trailing" constant="31" id="APK-ch-gge"/>
+                                </constraints>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Target4" translatesAutoresizingMaskIntoConstraints="NO" id="KLF-uV-4Sm">
                                 <rect key="frame" x="135" y="259" width="50" height="50"/>
@@ -384,6 +397,7 @@
                     <navigationItem key="navigationItem" id="WUD-vA-6s8"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="clockLabel" destination="YML-UP-d9w" id="ESY-df-nfp"/>
                         <outlet property="target" destination="KLF-uV-4Sm" id="vPV-HO-b6r"/>
                         <outlet property="wallpaperView" destination="Vev-ZV-6GP" id="ITt-jk-vzl"/>
                     </connections>

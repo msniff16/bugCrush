@@ -12,16 +12,15 @@ import AVFoundation
 class GameScreenViewController: UIViewController {
 
     var farmerName: String?
+    var timeInterval: Double = 0.1
+    var clock: Int = 0
+    var alertShown = false
+    
+    @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var farmerChosen: UILabel!
     @IBOutlet weak var wallpaperView: UIView!
-    @IBOutlet weak var target: UIImageView! {
-        
-        didSet {
-            print("TARGET SET: \(target.center)")
-        }
-        
-    }
-
+    @IBOutlet weak var target: UIImageView!
+    
     // Create timer
     var timer = NSTimer()
 
@@ -38,12 +37,54 @@ class GameScreenViewController: UIViewController {
         //farmerChosen.text = farmerName
         
         targetOrigin = target.center
-        targetMoveAmount = 40
+        targetMoveAmount = 30
+        self.clockLabel.text = "0"
+        clockTimer()
 
         // turn auto-resize events into autolayout contraints
         self.target.translatesAutoresizingMaskIntoConstraints = true
         self.wallpaperView.translatesAutoresizingMaskIntoConstraints = true
 
+        
+    }
+    
+    // run clock
+    func clockTimer() {
+        
+        // increment the clock
+        let seconds = 1.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            
+            // here code perfomed with delay
+            self.clock += 1
+            self.clockLabel.text = String(self.clock)
+            
+            // next level reached
+            if(self.clock == 10) {
+                
+                // alert shown 
+                self.alertShown = true
+                
+                // pop up
+                let alert = UIAlertController(title: "Alert!", message: "Level 2!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Oh no!", style: UIAlertActionStyle.Default, handler: {(alert :UIAlertAction!) in
+                    // restart bugs and timer
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
+                    self.clockTimer()
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                // stop the bugs
+                self.timer.invalidate()
+                
+            } else {
+                self.clockTimer()
+            }
+            
+        })
 
     }
     
@@ -76,7 +117,7 @@ class GameScreenViewController: UIViewController {
         }
         
         // call startGame() on a timer
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "startGame", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
         
     }
     
@@ -134,6 +175,12 @@ class GameScreenViewController: UIViewController {
         print("pest")
         nearBug()
         
+        wallpaperView.backgroundColor = UIColor.redColor()
+        UIView.animateWithDuration(0.2) { () -> Void in
+            
+            self.wallpaperView.backgroundColor = UIColor.whiteColor()
+            
+        }
         
         // play sound
         do {
@@ -156,6 +203,26 @@ class GameScreenViewController: UIViewController {
     
     @IBAction func roundup(sender: AnyObject) {
         print("roundup")
+        nukeBugs()
+        
+        wallpaperView.backgroundColor = UIColor.blackColor()
+        UIView.animateWithDuration(2.0) { () -> Void in
+            
+            self.wallpaperView.backgroundColor = UIColor.whiteColor()
+            
+        }
+        
+        // play sound
+        do {
+            try player = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("atomicBomb", ofType: "mp3")!), fileTypeHint:nil)
+            player.numberOfLoops = 1
+            player.prepareToPlay()
+            player.play()
+        } catch {
+            //Handle the error
+            print("CANNOT PLAY!")
+        }
+
     }
     
     
@@ -166,21 +233,24 @@ class GameScreenViewController: UIViewController {
     func nearBug() {
         
         let currentPosition = target.center
+        timer.invalidate()
         
         // loop thru all bugs
         for (index, i) in bugPositions.enumerate() {
             
             // bug is hit
-            if( sqrt(square(Double(currentPosition.x) - Double(i.center.x))) + sqrt(square(Double(currentPosition.y) - Double(i.center.y))) < 100) {
+            if( sqrt(square(Double(currentPosition.x) - Double(i.center.x))) + sqrt(square(Double(currentPosition.y) - Double(i.center.y))) < 65) {
                 
                 print("DESTROYED!")
+                bugPositions = bugPositions.filter({$0 != i})
                 i.removeFromSuperview()
-                bugPositions.removeAtIndex(index)
                 
                 
             }
             
         }
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
 
         
     }
@@ -188,6 +258,38 @@ class GameScreenViewController: UIViewController {
     func square(num: Double) -> Double {
         return num * num
     }
+    
+    // check if gun is close enough to bug to kill it
+    func nukeBugs() {
+        
+        timer.invalidate()
+        
+        // loop thru all bugs
+        for (index, i) in bugPositions.enumerate() {
+            
+            bugPositions = []
+            i.removeFromSuperview()
+            
+        }
+        
+        // delay before sending more bugs onto screen after bomb
+        let seconds = 3.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            
+            if(!self.alertShown) {
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
+            }
+            
+        })
+    
+      
+        
+
+    }
+
     
     
 }
