@@ -38,7 +38,11 @@ class GameScreenViewController: UIViewController {
         
         targetOrigin = target.center
         targetMoveAmount = 40
-       
+
+        // turn auto-resize events into autolayout contraints
+        self.target.translatesAutoresizingMaskIntoConstraints = true
+        self.wallpaperView.translatesAutoresizingMaskIntoConstraints = true
+
 
     }
     
@@ -70,7 +74,7 @@ class GameScreenViewController: UIViewController {
             }
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "startGame", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "startGame", userInfo: nil, repeats: true)
         
         //startGame()
         
