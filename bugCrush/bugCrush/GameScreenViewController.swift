@@ -81,7 +81,7 @@ class GameScreenViewController: UIViewController {
     // game start
     func startGame() {
 
-            target.center.y += 40
+            //target.center.y += 40
         
             //i += 1
             //let seconds = 1.0
