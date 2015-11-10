@@ -23,7 +23,7 @@ class GameScreenViewController: UIViewController {
     var timeInterval: Double = 0.5
     var clock: Int = 0
     var alertShown = false
-    var levelTime = 15
+    var levelTime = 5
     var level = 0
     var cornSize = 5
     var cornCollection: [UIImageView] = []
@@ -80,8 +80,9 @@ class GameScreenViewController: UIViewController {
                 // Get level
                 self.level = (self.clock / self.levelTime) + 1
                 
-                if self.level == 11 {
-                    self.performSegueWithIdentifier("highScore", sender: nil)
+                if self.level == 2 {
+                    self.performSegueWithIdentifier("toScore", sender: nil)
+                    
                     
                     //
                 }

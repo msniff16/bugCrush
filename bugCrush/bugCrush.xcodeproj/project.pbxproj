@@ -21,6 +21,7 @@
 		B58BC5711BC716AB00A6F762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58BC5701BC716AB00A6F762 /* Assets.xcassets */; };
 		B58BC57F1BC716AB00A6F762 /* bugCrushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC57E1BC716AB00A6F762 /* bugCrushTests.swift */; };
 		B58BC58A1BC716AB00A6F762 /* bugCrushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BC5891BC716AB00A6F762 /* bugCrushUITests.swift */; };
+		B5D28A591BE0420C0048D6FC /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D28A581BE0420C0048D6FC /* GameOverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		B58BC5851BC716AB00A6F762 /* bugCrushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bugCrushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58BC5891BC716AB00A6F762 /* bugCrushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bugCrushUITests.swift; sourceTree = "<group>"; };
 		B58BC58B1BC716AB00A6F762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5D28A581BE0420C0048D6FC /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		E3834FDF15390AFCF9D89522 /* Pods-bugCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bugCrush.release.xcconfig"; path = "Pods/Target Support Files/Pods-bugCrush/Pods-bugCrush.release.xcconfig"; sourceTree = "<group>"; };
 		F0E950E11F8CFBDC0C98CC94 /* Pods_bugCrush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bugCrush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				8DA9468C1BD0454E005DD70D /* Cells */,
 				B58BC56B1BC716AB00A6F762 /* FrontPageViewController.swift */,
 				8D66D1EB1BCEBA2000F9A78D /* PickFarmerViewController.swift */,
+				B5D28A581BE0420C0048D6FC /* GameOverViewController.swift */,
 				8D66D1ED1BCEC72F00F9A78D /* GameScreenViewController.swift */,
 				8DA9468A1BD0428C005DD70D /* HighScoresViewController.swift */,
 				B58BC56D1BC716AB00A6F762 /* Main.storyboard */,
@@ -372,6 +375,7 @@
 				B58BC56C1BC716AB00A6F762 /* FrontPageViewController.swift in Sources */,
 				B58BC56A1BC716AB00A6F762 /* AppDelegate.swift in Sources */,
 				8D66D1EE1BCEC72F00F9A78D /* GameScreenViewController.swift in Sources */,
+				B5D28A591BE0420C0048D6FC /* GameOverViewController.swift in Sources */,
 				8DA9468E1BD0456F005DD70D /* ScoreCell.swift in Sources */,
 				8D66D1EC1BCEBA2000F9A78D /* PickFarmerViewController.swift in Sources */,
 			);

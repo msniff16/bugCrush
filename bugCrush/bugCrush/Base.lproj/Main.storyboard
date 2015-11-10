@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -233,12 +233,12 @@
                                 <rect key="frame" x="-8" y="0.0" width="336" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YML-UP-d9w">
-                                        <rect key="frame" x="245" y="21" width="60" height="23.5"/>
+                                        <rect key="frame" x="245" y="21" width="60" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="3Fu-vI-BZR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -371,17 +371,17 @@
                         <outlet property="clockLabel" destination="YML-UP-d9w" id="ESY-df-nfp"/>
                         <outlet property="target" destination="KLF-uV-4Sm" id="vPV-HO-b6r"/>
                         <outlet property="wallpaperView" destination="Vev-ZV-6GP" id="ITt-jk-vzl"/>
-                        <segue destination="ANo-CH-xKE" kind="push" identifier="highScore" id="cg3-SH-leH"/>
+                        <segue destination="ANo-CH-xKE" kind="modal" identifier="toScore" id="sNB-Av-ALf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt0-Gd-FiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1433" y="374"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Over View Controller-->
         <scene sceneID="Q50-PD-Mn4">
             <objects>
-                <viewController id="ANo-CH-xKE" sceneMemberID="viewController">
+                <viewController id="ANo-CH-xKE" customClass="GameOverViewController" customModule="bugCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0e6-RA-zf6"/>
                         <viewControllerLayoutGuide type="bottom" id="ceX-WA-8BC"/>
@@ -389,13 +389,46 @@
                     <view key="view" contentMode="scaleToFill" id="88c-U2-dYr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yield" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o97-2u-v85">
+                                <rect key="frame" x="20" y="38" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bugs killed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvo-0X-jcc">
+                                <rect key="frame" x="20" y="67" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bushels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD0-j3-pgU">
+                                <rect key="frame" x="67" y="38" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rf-4kV">
+                                <rect key="frame" x="116" y="67" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr7-tD-BIz">
+                                <rect key="frame" x="222" y="44" width="71" height="30"/>
+                                <state key="normal" title="Play Again"/>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="combine.png" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-vu-xOi">
+                                <rect key="frame" x="7" y="96" width="60" height="60"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OP5-zZ-Ezb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64Y-pb-Aj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1801" y="374"/>
+            <point key="canvasLocation" x="1793" y="374"/>
         </scene>
         <!--High Scores View Controller-->
         <scene sceneID="5jf-EU-g1Z">
@@ -454,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hta-G1-xMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2142" y="366"/>
+            <point key="canvasLocation" x="2334" y="724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C2c-ih-CDK">
@@ -483,6 +516,7 @@
         <image name="arrow-right" width="128" height="128"/>
         <image name="arrow-up" width="128" height="128"/>
         <image name="bugsTrail" width="640" height="1136"/>
+        <image name="combine.png" width="60" height="60"/>
         <image name="farmerDave" width="180" height="140"/>
         <image name="frontPageGraphic" width="640" height="1136"/>
         <image name="logo_white" width="639" height="114"/>
