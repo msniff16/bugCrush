@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GameOverViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:bugCrush.xcodeproj">
    </FileRef>
    <FileRef

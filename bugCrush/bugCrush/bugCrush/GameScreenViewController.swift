@@ -16,22 +16,39 @@ class GameScreenViewController: UIViewController {
     //Count bugs killed and shots taken - then display on screen
     // Calculate 'bug seconds' and implied yield
     
-    //OPTIONALS
-    //
-    
+    // game params
     var farmerName: String?
     var timeInterval: Double = 0.5
     var clock: Int = 0
     var alertShown = false
-    var levelTime = 5
+    var levelTime = 15
     var level = 0
     var cornSize = 5
     var cornCollection: [UIImageView] = []
+   
+    var bombCounterLeft = 3 {
+        willSet(newValue){
+            self.bombCounterLabel.text = String(newValue)
+        }
+    }
     
-    @IBOutlet weak var clockLabel: UILabel!
+    var bugCount = 0 {
+        willSet(newValue){
+            self.bugCountLabel.text = String(newValue)
+        }
+    }
+    
+    var bugCountOnScreen = 0
+    var currentScore:Float = 500
+    
     @IBOutlet weak var farmerChosen: UILabel!
     @IBOutlet weak var wallpaperView: UIView!
     @IBOutlet weak var target: UIImageView!
+    @IBOutlet weak var bombCounterLabel: UILabel!
+    @IBOutlet weak var bugCountLabel: UILabel!
+    @IBOutlet weak var clockLabel: UIBarButtonItem!
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var score: UILabel!
     
     // Create timer
     var timer = NSTimer()
@@ -50,7 +67,8 @@ class GameScreenViewController: UIViewController {
         
         targetOrigin = target.center
         targetMoveAmount = 30
-        self.clockLabel.text = "0"
+        self.clockLabel.title = "0"
+        self.bombCounterLabel.text = String(bombCounterLeft)
         clockTimer()
 
         // turn auto-resize events into autolayout contraints
@@ -61,6 +79,7 @@ class GameScreenViewController: UIViewController {
     }
     
     // run clock
+    var previousBugAmount = 0;
     func clockTimer() {
         
         // increment the clock
@@ -72,7 +91,19 @@ class GameScreenViewController: UIViewController {
             
             // here code perfomed with delay
             self.clock += 1
-            self.clockLabel.text = String(self.clock)
+            self.clockLabel.title = String(self.clock)
+            
+            // calculate score
+            //let subtractAmount =  (self.bugCount - self.previousBugAmount)
+            let subtractAmount =  Float(self.bugCount) / 5
+            //if(subtractAmount > 0)  {
+                self.currentScore = Float(self.currentScore) - subtractAmount
+                if(self.currentScore < 0) {
+                    self.currentScore = 0
+                }
+            //}
+            self.previousBugAmount = self.bugCount
+            self.score.text = String(self.currentScore) + " bu"
             
             // next level reached
             if((self.clock % self.levelTime) == 0) {
@@ -80,34 +111,35 @@ class GameScreenViewController: UIViewController {
                 // Get level
                 self.level = (self.clock / self.levelTime) + 1
                 
-                if self.level == 2 {
-                    self.performSegueWithIdentifier("toScore", sender: nil)
-                    
-                    
-                    //
+                if self.level == 11 {
+                    self.performSegueWithIdentifier("GameOver", sender: nil)
                 }
                 
-                // alert shown 
-                self.alertShown = true
-                
-                // pop up
-                let alert = UIAlertController(title: "Alert!", message: "Growth Stage: \(self.level)!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Oh snap!", style: UIAlertActionStyle.Default, handler: {(alert :UIAlertAction!) in
-                    // restart bugs and timer
-                    self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
-                    self.clockTimer()
-                    self.alertShown = false
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-                // stop the bugs
-                self.timer.invalidate()
-                
-                //Grow the corn
-                
-                for (index,corn) in self.cornCollection.enumerate() {
-                    corn.frame.size = CGSize(width: (self.cornSize * self.level), height: (self.cornSize * self.level))
-                }
+                else {
+                    
+                    // alert shown
+                    self.alertShown = true
+                    
+                    // pop up
+                    let alert = UIAlertController(title: "New Level", message: "Growth Stage: \(self.level)!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Oh snap!", style: UIAlertActionStyle.Default, handler: {(alert :UIAlertAction!) in
+                        // restart bugs and timer
+                        self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
+                        self.clockTimer()
+                        self.alertShown = false
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    // stop the bugs
+                    self.timer.invalidate()
+                    
+                    //Grow the corn
+                    
+                    for (index,corn) in self.cornCollection.enumerate() {
+                        corn.frame.size = CGSize(width: (self.cornSize * self.level), height: (self.cornSize * self.level))
+                    }
+                    
+                }                
                 
             } else {
                 self.clockTimer()
@@ -149,7 +181,6 @@ class GameScreenViewController: UIViewController {
         // call startGame() on a timer
         timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
         
-        wallpaperView.bringSubviewToFront(clockLabel)
         
     }
     
@@ -160,16 +191,18 @@ class GameScreenViewController: UIViewController {
         let bugImage = UIImage(named: "pesticide2")
         let bugImageView = UIImageView(image: bugImage!)
         //bugImageView.center = CGPoint(x: 60+self.i*40, y: 60+self.i*40)
-        let randomX: Int = Int(arc4random_uniform(800))
-        let randomY: Int = Int(arc4random_uniform(800))
+        let randomX: Int = Int(arc4random_uniform(320))
+        let randomY: Int = Int(arc4random_uniform(405))
         print(random)
         bugImageView.center = CGPoint(x: 260+randomX, y:260+randomY)
         bugImageView.frame.size = CGSize(width: 40.0, height: 40.0)
         
         // add current bug's position to array
         self.bugPositions.append(bugImageView)
+        bugCount += 1
         
         self.wallpaperView.addSubview(bugImageView)
+        self.wallpaperView.bringSubviewToFront(self.overlayView)
         
         print("\(target.center.x)")
         print("\(target.center.y)")
@@ -240,24 +273,6 @@ class GameScreenViewController: UIViewController {
         print("roundup")
         nukeBugs()
         
-        wallpaperView.backgroundColor = UIColor.blackColor()
-        UIView.animateWithDuration(2.0) { () -> Void in
-            
-            self.wallpaperView.backgroundColor = UIColor.whiteColor()
-            
-        }
-        
-        // play sound
-        do {
-            try player = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("atomicBomb", ofType: "mp3")!), fileTypeHint:nil)
-            player.numberOfLoops = 1
-            player.prepareToPlay()
-            player.play()
-        } catch {
-            //Handle the error
-            print("CANNOT PLAY!")
-        }
-
     }
     
     
@@ -280,6 +295,8 @@ class GameScreenViewController: UIViewController {
                 bugPositions = bugPositions.filter({$0 != i})
                 i.removeFromSuperview()
                 
+                bugCount -= 1
+                
                 
             }
             
@@ -297,33 +314,68 @@ class GameScreenViewController: UIViewController {
     // check if gun is close enough to bug to kill it
     func nukeBugs() {
         
-        timer.invalidate()
-        
-        // loop thru all bugs
-        for (index, i) in bugPositions.enumerate() {
+        if bombCounterLeft > 0 {
             
-            bugPositions = []
-            i.removeFromSuperview()
-            
-        }
-        
-        // delay before sending more bugs onto screen after bomb
-        let seconds = 3.0
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            
-            if(!self.alertShown) {
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
+            wallpaperView.backgroundColor = UIColor.blackColor()
+            UIView.animateWithDuration(2.0) { () -> Void in
+                
+                self.wallpaperView.backgroundColor = UIColor.whiteColor()
+                
             }
             
-        })
+            // play sound
+            do {
+                try player = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("atomicBomb", ofType: "mp3")!), fileTypeHint:nil)
+                player.numberOfLoops = 1
+                player.prepareToPlay()
+                player.play()
+            } catch {
+                //Handle the error
+                print("CANNOT PLAY!")
+            }
+
+            
+            bombCounterLeft = bombCounterLeft - 1
+            bugCount = 0
+        
+            timer.invalidate()
+            
+            // loop thru all bugs
+            for (index, i) in bugPositions.enumerate() {
+                
+                bugPositions = []
+                i.removeFromSuperview()
+                
+            }
+            
+            // delay before sending more bugs onto screen after bomb
+            let seconds = 3.0
+            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                
+                if(!self.alertShown) {
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: "startGame", userInfo: nil, repeats: true)
+                }
+                
+            })
+        }
     
       
         
 
     }
+    
+    // send data over to gameScreen on segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if let gameOverVC = segue.destinationViewController as? GameOverViewController {
+            gameOverVC.finalYield = self.currentScore
+        }
+        
+    }
+    
 
     
     

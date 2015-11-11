@@ -21,10 +21,14 @@ class GameOverViewController: UIViewController {
     var yLocation: CGFloat?
     var shouldMoveAgain = true
     var loopCount = 0
-
+    var finalYield:Float = 0
+    
+    @IBOutlet weak var totalYield: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //yield.text = "Lalala"
+        self.totalYield.text = String(finalYield)
         
         //get screen width and height
         let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -36,7 +40,7 @@ class GameOverViewController: UIViewController {
         let combineHeight = Int(60)
         
         //calculate vertical translation distance
-        vertTransDistance = screenHeight - combineHeight
+        vertTransDistance = screenHeight - combineHeight - 50
         
         //calculate number of animations in loops
         vertTrans = (screenWidth / combineWidth) / 2
@@ -58,6 +62,9 @@ class GameOverViewController: UIViewController {
     
     }
     
+    @IBAction func onPlayAgain(sender: UIButton) {
+        self.performSegueWithIdentifier("backToFront", sender: nil)
+    }
     
     
     func animateCombine(loopCount: Int) {
